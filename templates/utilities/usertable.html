@@ -1,0 +1,104 @@
+{% include 'header.html' %}
+{% include 'navbar2.html' %}
+<div class="container" style="margin: 2em auto; text-align: auto;">
+    <form class="row row-cols-lg-auto g-3 align-items-center" style="margin-bottom: 1em;">
+        <div class="col-lg-3 align-items-center" style="align-items: left;">
+            <div class="col-12 float-start">
+                <button type="button" class="btn btn-outline-dark" onclick="window.location.href='/register'">Create New User</button>
+            </div>
+        </div>
+        <div class="col-lg-9 row-cols-lg-auto align-items-center">
+            <div class="col-12 float-end">
+                <button type="submit" class="btn btn-outline-dark">Search</button>
+            </div>
+            <div class="col-12 float-end" style="margin-left: 5px; margin-right: 5px;">
+                <select class="form-select" id="searchby">
+                    <option value="username" selected>Username</option>
+                    <option value="name">Name</option>
+                    <option value="email">Email</option>
+                </select>
+            </div>
+            <div class="col-12 float-end">
+                <input type="search" class="form-control" id="search" placeholder="Search by">
+            </div>
+        </div>
+    </form>
+    <table class="table table-bordered table-hover table-responsive-sm" data-pagination="true">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">#ID</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Staff</th>
+                    <th scope="col">Superuser</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style='cursor: pointer; cursor: hand;' onclick="window.location='/usertable/edit/1{{id}}';">
+                    <th scope="row">1</th>
+                    <td>harrywang</td>
+                    <td>hw18@hampshire.edu</td>
+                    <td>Harry Wang</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                </tr>
+                <tr style='cursor: pointer; cursor: hand;' onclick="window.location='/usertable/edit/2{{id}}';">
+                    <th scope="row">2</th>
+                    <td>liping</td>
+                    <td>liping@neu.edu</td>
+                    <td>Ping Li</td>
+                    <td>No</td>
+                    <td>No</td>
+                </tr>
+                <tr style='cursor: pointer; cursor: hand;' onclick="window.location='/usertable/edit/3{{id}}';">
+                    <th scope="row">3</th>
+                    <td>boming</td>
+                    <td>bomingzhang@umass.edu</td>
+                    <td>Boming Zhang</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr>
+                <tr style='cursor: pointer; cursor: hand;' onclick="window.location='/usertable/edit/4{{id}}';">
+                    <th scope="row">4</th>
+                    <td>liuchang62166</td>
+                    <td>liuchang62166@hotmail.com</td>
+                    <td>Chang Liu</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                </tr>
+            </tbody>
+    </table>
+    <nav aria-label="..." class="justify-content-center">
+        <div class="justify-content-start" style="width: 150px;">
+            <form>
+                <label>Item Per page:</label>
+                <select class="form-select" id="item_per_page" style="width: 80px;">
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="30">40</option>
+                    <option value="30">50</option>
+                    <option value="30">100</option>
+                </select>
+            </form>
+        </div>
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+            <li class="page-item"><a class="page-link" href="#">199</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+            </li>
+        </ul>
+        <form class="justify-content-end">
+
+        </form>
+    </nav>
+</div>
+{% include 'footer.html' %}

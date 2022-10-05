@@ -1,0 +1,23 @@
+{% include 'header.html' %}
+{% include 'navbar2.html' %}
+<style>
+    .container2 {
+        max-width: 500px;
+        margin-top: 1em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<div class="container container2 container-fluid" style="justify-self: center; ">
+    <form action="/changeemail" method="POST">
+        <div class="mb-3">
+            <label for="email">Your Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="{{user.email}}" required>
+        </div>
+        <button type="submit" class="btn btn-dark" style="margin: 0.5em;">UPDATE EMAIL</button>
+    </form>
+    {% if invalid_email %}
+        <p style="margin-top: 0.5em; color: rgb(214, 36, 36);">This email is already registered.</p>
+    {% endif %}
+</div>
+{% include 'footer.html' %}

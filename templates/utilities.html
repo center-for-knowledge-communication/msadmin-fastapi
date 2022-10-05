@@ -1,0 +1,16 @@
+{% include 'header.html' %}
+{% include 'navbar2.html' %}
+<div class="container" style="width: 500px; margin: 1em auto; text-align: auto;">
+    {% if user.is_superuser == 1 %}
+    <h1>Superuser Utilities</h1>
+    {% else %}
+    <h1>Staff Utilities</h1>
+    {% endif %}
+    <div class="list-group">
+        <a href="/register" class="list-group-item list-group-item-action">Create New User</a>
+        {% if user.is_superuser %}
+        <a href="/usertable" class="list-group-item list-group-item-action">Manage User</a>
+        {% endif %}
+    </div>
+</div>
+{% include 'footer.html' %}

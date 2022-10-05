@@ -1,0 +1,7 @@
+fastapi
+fastapi-login
+uvicorn
+pydantic
+python_dotenv
+passlib
+alembic

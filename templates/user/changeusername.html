@@ -1,0 +1,23 @@
+{% include 'header.html' %}
+{% include 'navbar2.html' %}
+<style>
+    .container2 {
+        max-width: 500px;
+        margin-top: 1em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<div class="container container2 container-fluid" style="justify-self: center; ">
+    <form action="/changeusername" method="POST">
+        <div class="mb-3">
+            <label for="username">Your Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="{{user.username}}" required>
+        </div>
+        <button type="submit" class="btn btn-dark" style="margin: 0.5em;">UPDATE USERNAME</button>
+    </form>
+    {% if invalid_username %}
+        <p style="margin-top: 0.5em; color: rgb(214, 36, 36);">This username is already taken.</p>
+    {% endif %}
+</div>
+{% include 'footer.html' %}

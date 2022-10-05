@@ -1,0 +1,24 @@
+{% include 'header.html' %}
+{% include 'navbar2.html' %}
+<style>
+    .container2 {
+        max-width: 500px;
+        margin-top: 1em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<div class="container container2 container-fluid" style="justify-self: center; ">
+    <form action="/changename" method="POST">
+        <div class="mb-3">
+            <label for="first_name">First Name</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="{{user.first_name}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="last_name">Last Name</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="{{user.last_name}}" required>
+        </div>
+        <button type="submit" class="btn btn-dark" style="margin: 0.5em;">UPDATE NAME</button>
+    </form>
+</div>
+{% include 'footer.html' %}

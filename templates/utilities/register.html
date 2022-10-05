@@ -1,0 +1,78 @@
+{% include 'header.html' %}
+{% include 'navbar2.html' %}
+<style>
+    .container2 {
+        max-width: 500px;
+        margin-top: 1em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<div class="container container2 container-fluid" style="justify-self: center;">
+    <form action="/register" method="POST">
+        <div class="mb-3">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" required>
+        </div>
+        <div class="mb-3">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" required>
+        </div>
+        {% if user.is_superuser == 1 %}
+        <div class="mb-3">
+            <label for="is_superuser">Is this user a superuser?</label>
+            <select class="form-control" id="is_superuser" name="is_superuser" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        {% else %}
+        <div class="mb-3">
+            <label for="is_superuser">Is this user a superuser?</label>
+            <select class="form-control" id="is_superuser" name="is_superuser" required disabled>
+                <option value="0" selected>No</option>
+                <option value="0">Yes</option>
+            </select>
+        </div>
+        {% endif %}
+        <div class="mb-3">
+            <label for="is_staff">Is this user a staff?</label>
+            <select class="form-control" id="is_staff" name="is_staff" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="password need at least 10 characters long (letters & digits)" required>
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="please re-enter the password" required>
+        </div>
+        <button type="submit" class="btn btn-dark" style="margin: 0.5em;">CREATE ACCOUNT</button>
+    </form>
+    {% if invalid_user %}
+        <p style="margin-top: 0.5em; color: rgb(214, 36, 36);">This username is already taken.</p>
+    {% else %}
+        {% if invalid_email %}
+            <p style="margin-top: 0.5em; color: rgb(214, 36, 36);">This email is already registered.</p>
+        {% else %}
+            {% if invalid_password %}
+            <p style="margin-top: 0.5em; color: rgb(214, 36, 36);">The password need to follow the requirement.</p>
+            {% else %}  
+                {% if password_not_match %}
+                    <p style="margin-top: 0.5em; color: rgb(214, 36, 36);">Your passwords doesn't match.</p>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+</div>
+{% include 'footer.html' %}
